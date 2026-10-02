@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPA & CGPA Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+ <h1>ACADEMIC GPA & CGPA CALCULATOR</h1>
+
+  <!-- SECTION 1: SINGLE SESSION GPA CALCULATOR -->
+  <div class="container">
+    <h2>GPA Calculator</h2>
+    <div id="calculatorBox">
+      <h3 id="courseTitle">Course 1</h3>
+      <div class="progress" id="progressTracker">Step 1</div>
+
+      <div class="form-group">
+        <label for="gradeInput">Grade Point (e.g., 5, 4, 3...)</label>
+        <input type="number" id="gradeInput" placeholder="Enter Grade Point" min="0" max="5" autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="unitInput">Unit Credit (e.g., 3, 2, 1...)</label>
+        <input type="number" id="unitInput" placeholder="Enter Unit Credit" min="0">
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-primary" id="nextBtn" onclick="processStep(false)">Next Course →</button>
+        <button class="btn-success" id="finishBtn" onclick="processStep(true)">Finish & Calculate GPA</button>
+      </div>
+    </div>
+
+    <!-- Semester GPA Result Card -->
+    <div id="resultCard" class="result-card">
+      <h2>Semester GPA Summary</h2>
+      <div class="summary-item">
+        <span>Courses Added:</span>
+        <strong id="displayCourses">0</strong>
+      </div>
+      <div class="summary-item">
+        <span>Total Units (TU):</span>
+        <strong id="displayTU">0</strong>
+      </div>
+      <div class="summary-item">
+        <span>Total Points (TPU):</span>
+        <strong id="displayTPU">0</strong>
+      </div>
+      <div class="summary-item">
+        <span>Calculated GPA:</span>
+        <strong id="displayGPA">0.00</strong>
+      </div>
+      <div class="summary-item">
+        <span>Class Division:</span>
+        <strong id="displayClass">-</strong>
+      </div>
+      <button class="btn-primary" onclick="resetCalculator()" style="background-color: #7f8c8d; margin-top: 15px;">Calculate Again</button>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CUMULATIVE CGPA CALCULATOR -->
+  <div class="container">
+    <h2>Academic CGPA Calculator</h2>
+    <p class="section-desc">Combine GPA and Total Units across multiple academic sessions/semesters.</p>
+
+    <div class="session-header">
+      <span>Semester/Session GPA</span>
+      <span>Total Session Units</span>
+    </div>
+
+    <div id="sessionContainer">
+      <div class="session-row">
+        <input type="number" class="session-gpa" placeholder="Session 1 GPA" step="0.01" min="0" max="5">
+        <input type="number" class="session-unit" placeholder="Units (e.g. 18)" min="1">
+      </div>
+      <div class="session-row">
+        <input type="number" class="session-gpa" placeholder="Session 2 GPA" step="0.01" min="0" max="5">
+        <input type="number" class="session-unit" placeholder="Units (e.g. 21)" min="1">
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn-primary" style="background-color: #34495e;" onclick="addSessionRow()">+ Add Another Session</button>
+      <button class="btn-purple" onclick="calculateCGPA()">Calculate Overall CGPA</button>
+    </div>
+
+    <!-- CGPA Result Card -->
+    <div id="cgpaResultCard" class="result-card" style="margin-top: 20px; border-left-color: var(--secondary-color);">
+      <h2>Cumulative Result</h2>
+      <div class="summary-item">
+        <span>Total Sessions Added:</span>
+        <strong id="displayTotalSessions">0</strong>
+      </div>
+      <div class="summary-item">
+        <span>Overall Units:</span>
+        <strong id="displayOverallUnits">0</strong>
+      </div>
+      <div class="summary-item">
+        <span>Overall CGPA:</span>
+        <strong id="displayCGPA">0.00</strong>
+      </div>
+      <div class="summary-item">
+        <span>Overall Class Division:</span>
+        <strong id="displayCGPAClass">-</strong>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy;2026 ORIZBOSS</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
