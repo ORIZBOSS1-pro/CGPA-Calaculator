@@ -3,13 +3,13 @@
   "name": "GPA & CGPA Calculator",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "cgpa.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "cgpa.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
